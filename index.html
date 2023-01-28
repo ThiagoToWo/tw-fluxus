@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TW/Fluxus</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="all">
+        <div class="header">
+            <header>
+                <h1>Linguagem TW/Fluxus</h1>
+                <h2>Interpretador básico da linguagem TW/Fluxus</h2>
+            </header>            
+        </div>
+        <div class="main">
+            <h3>Escreva seu código abaixo:</h3>
+            <textarea id="code" cols="30" rows="20" placeholder='{<< "Hello, world!;"}'></textarea>
+            <br>
+            <input type="button" id="inRun" value="Run">
+            <input type="button" id="inReset" value="Reset">
+            <h3>Resultado:</h3>
+            <textarea id="result" cols="30" rows="10"></textarea>
+        </div>
+        <div class="definitions">
+            <pre>
+LINGUAGEM DE PROGRAMAÇÃO TW
+
+programa: {decl_sequência}
+
+decl_sequência: declaração; {declaração;}
+
+declaração: decl_atribuição | decl_leitura | decl_escrita |
+            decl_condicional | ramificação | subrotina |
+            rótulo | retorno
+
+ENTRADA/SAÍDA:
+decl_atribuição: atrib_numérica | atrib_texto
+
+atrib_numérica: identificador = expr_lógica {, expr_lógica} |
+                identificador[expr_lógica] = expr_lógica {, expr_lógica}
+
+atrib_texto: $identificador = "CADEIA" | $identificador[expr_lógica] = expr_lógica
+    OBS.: uma string, quando atribuída a um caractere, tem apenas sua primeira letra guardada de fato.
+          Expressões numéricas, quando atribuídas a um caractere, se convertem ao caractere de valor
+          ASCII da expressão.
+        Ex.: $c[4] = 72 - 65 + 91   (será interpretado como 'b', o caractere ASCII de número 98)
+        Ex.: $b[10] = "Amor"        (apenas o primeiro caractere 'A' será atribuído)
+
+decl_leitura: >> container {, container}
+
+container: identificador | identificador[expr_lógica] | 
+           $identificador | $identificador[expr_lógica]
+    OBS.: uma string, quando lida em um caractere, tem apenas sua primeira letra lida de fato.
+        Ex.: >> $s      (atribui todos os caracteres do buffer de leitura)
+        Ex.: >> $t[2]   (atribui apenas o primeiro caractere e descarta o resto do buffer de leitura)
+
+decl_escrita: << sintagma {, sintagma}
+
+sintagma: "CADEIA" | $identificador | $identificador[expr_lógica] | expr_lógica
+    Obs.: expressões que envolvam caracteres só serão impressas diretamente na forma numérica.
+        Ex.: << "a" + 61 (imprime 97 + 61 = 158, pois pois 97 é o valor do caractere 'a' na tabela ASCII)
+        Ex.: << $t - 12 (imprime a subtração do valor ASCII do primeiro caractere de $t com 12)
+        Ex.: << "Amor" * 2 (imprime 65 * 2 = 130, pois 65 é o valor ASCII de 'A', primeiro caractere de "Amor")
+
+identificador: LETRA
+    OBS.: Não é case sensitive.
+        Ex.: a ou A, b ou B, ..., z ou Z.
+
+COMANDOS:
+decl_condicional: ?expr_lógica? ramificação
+
+ramificação: -> rótulo
+
+subrotina: => rótulo
+
+rótulo: NÚMERO POSITIVO
+    
+retorno: <-
+
+CÁLCULOS:
+expr_lógica: expr_log_termo {disjunção expr_log_termo}
+
+disjunção: |
+
+expr_log_termo: expr_log_fator {conjunção expr_log_fator}
+
+conjunção: &
+
+expr_log_fator: expr_relacional [igualdade expr_relacional]
+
+igualdade: == | !=
+
+expr_relacional: expr_simples [desigualdade expr_simples]
+
+desigualdade: < | > | <= | >=
+
+expr_simples: termo {soma termo}
+
+soma: + | -
+
+termo: fator {mult fator}
+
+mult: * | / | %
+
+fator: (expr_lógica) | NÚMERO | identificador | identificador[expr_lógica] |
+       "LETRA" | $identificador | $identificador[expr_lógica]
+
+MARCAÇÔES:
+comentários: "#"texto do comentários quebra-de-linha
+            </pre>
+        </div>
+        <div class="clear"></div>
+        <div class="footer">
+            <footer>
+                <small>Por Thiago Alves - 2023 &copy; Todos os direitos reservados</small>
+            </footer>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
