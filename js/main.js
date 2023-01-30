@@ -54,7 +54,12 @@ function reset() {
 function markSnipet(e) {
     const element = e.target;
     codeArea.focus();
-    codeArea.value += element.id;
+    let cursor = codeArea.selectionStart;
+    const simbol = element.id;
+    codeArea.value = codeArea.value.slice(0, cursor) + simbol + codeArea.value.slice(cursor);
+    codeArea.selectionStart = codeArea.selectionEnd = cursor + 1;
+    if (simbol == "  ")
+        codeArea.selectionStart = codeArea.selectionEnd = cursor + 2;
 }
 
 /**FUNÇÕES ÚTEIS PRIMÁRIAS: chamadas na função principal*/
