@@ -43,6 +43,8 @@ textarea {
     border-radius: 8px;
     width: 95%;
     resize: vertical;
+    border: solid 2px white;
+    
 }
 .main input {
     width: 90px;

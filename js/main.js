@@ -1,8 +1,9 @@
 /**ELEMENTOS HTML*/
 const codeArea = document.querySelector("#code");
 const resultArea = document.querySelector("#result");
-const botRun = document.querySelector("#inRun");
-const botReset = document.querySelector("#inReset");
+const btRun = document.querySelector("#inRun");
+const btReset = document.querySelector("#inReset");
+const btSnipets = document.querySelectorAll("#snipets input");
 
 /**VARIÁVEIS GLOBAIS*/
 const PROGLEN = 10000;
@@ -23,11 +24,17 @@ let start; /*index at which the program starts*/
 let end; /*index at which the program ends*/
 let dt; /*the number of ticks since the execution starts*/
 
-botRun.addEventListener("click", main);
-botReset.addEventListener("click", reset);
+btRun.addEventListener("click", main);
+btReset.addEventListener("click", reset);
+for (const button of btSnipets) {
+    button.addEventListener("click", markSnipet);
+}
 
 /**FUNÇÕES PRINCIPAIS: eventos de botões*/
 function main() {
+    varbl.fill(0);
+    str.fill(undefined);
+    prog = [];
     cont = codeArea.value;
     optimize();
     idx = 0;
@@ -37,21 +44,17 @@ function main() {
     idx = 0;
     token = prog[idx];
     program();
+    resultArea.value += `\nTempo: ${dt / 1000} segundos\n`;
 }
 
 function reset() {
-    varbl.fill(0);
-    str.fill(undefined);
-    prog = [];
-    cont = "";
-    labl.fill(0);
-    idx = 0;
-    token = prog[idx];    
-    back_pt = 0;
-    start = 0;
-    end = 0;
-    dt = 0;
     resultArea.value = "";
+}
+
+function markSnipet(e) {
+    const element = e.target;
+    codeArea.focus();
+    codeArea.value += element.id;
 }
 
 /**FUNÇÕES ÚTEIS PRIMÁRIAS: chamadas na função principal*/
@@ -117,8 +120,10 @@ function markBounds() {
 
 /**FUNÇÕES DA LINGUAGEM TW/FLUXUS: entrada/saída, comandos e cálculos*/
 function program() {
+    const t0 = new Date();
     match("{");
     statement_seq();
+    dt = new Date() - t0;
 }
 
 function statement_seq() {
@@ -232,7 +237,7 @@ function num_assign() {
 }
 
 function text_assign() {
-    const string = []; //precisa mesmo? testar direto p str[index]
+    const string = [];
     const variable = { value: undefined };
     const index = { value: undefined };
     match("$");
@@ -327,7 +332,7 @@ function sintagma() {
         if (prog[idx + 2] == ";" || prog[idx + 2] == ",") {
             match("$");
             id(variable, index);
-            resultArea.value += str[index.value];
+            resultArea.value += str[index.value].join("");
         } else if (prog[idx + 2] == "[") {
             let i = 3;
             while (prog[idx + i] != "]") i++;
