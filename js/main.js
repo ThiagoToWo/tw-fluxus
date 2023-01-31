@@ -1,8 +1,8 @@
 /**ELEMENTOS HTML*/
 const codeArea = document.querySelector("#code");
 const resultArea = document.querySelector("#result");
-const btRun = document.querySelector("#inRun");
-const btReset = document.querySelector("#inReset");
+const btRun = document.querySelector("#btRun");
+const btReset = document.querySelector("#btReset");
 const btSnipets = document.querySelectorAll("#snipets input");
 
 /**VARIÁVEIS GLOBAIS*/
@@ -284,10 +284,10 @@ function container() {
             const i = logical_expr();
             if (i > VARLEN) error(13); /*the array is out of bounds*/
             match("]");
-            varbl[index.value * VARMAX + i] = Number(prompt("Number: "));
+            varbl[index.value * VARMAX + i] = Number(prompt("Número: "));
             resultArea.value += varbl[index.value * VARMAX + i] + "\n";
         } else {
-            varbl[index.value * VARMAX] = Number(prompt("Number: "));
+            varbl[index.value * VARMAX] = Number(prompt("Número: "));
             resultArea.value += varbl[index.value * VARMAX] + "\n";
         }
     } else if (token == "$") {
@@ -298,11 +298,11 @@ function container() {
             const i = logical_expr();
             if (i > STRLEN - 1) error(13); /*the array is out of bounds*/
             match("]");
-            let string = prompt("Character: ");
+            let string = prompt("Caractere: ");
             str[index.value][i] = string[0];
             resultArea.value += str[index.value][i] + "\n";
         } else {
-            str[index.value] = prompt("Character(s): ");
+            str[index.value] = prompt("Caracteres: ");
             resultArea.value += str[index.value] + "\n";
         }
     } else {

@@ -43,21 +43,22 @@ textarea {
     border-radius: 8px;
     width: 95%;
     resize: vertical;
-    border: solid 2px white;
-    
+    border: solid 2px white;    
 }
-.main input {
+.main 
+input[type="button"], 
+input[type="submit"] {
     width: 90px;
     font-size: 16px;
     margin: 10px 0px;
     border-radius: 7px;
     font-weight: bold;  
 }
-#inRun {
+#btRun {
     background-color: #396;
     color: #ffc;            
 }
-#inReset {
+#btReset {
     background-color: #936;
     color: #ffc;
 }
