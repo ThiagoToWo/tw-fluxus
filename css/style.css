@@ -43,16 +43,39 @@ textarea {
     border-radius: 8px;
     width: 95%;
     resize: vertical;
-    border: solid 2px white;    
+    border: solid 2px white;
+    margin: 0 auto;   
 }
-.main 
 input[type="button"], 
-input[type="submit"] {
+input[type="submit"],
+button {
     width: 90px;
     font-size: 16px;
     margin: 10px 0px;
     border-radius: 7px;
-    font-weight: bold;  
+    font-weight: bold;
+}
+button {
+    width: 100px;
+}
+input[type="button"]:active, 
+input[type="submit"]:active,
+button:active {
+    background-color: rgb(171, 198, 226);
+}
+#snipets {
+    max-width: 80%;
+    background-color: #369;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 0px 25px 0px 33px;
+    margin: 0 auto;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
 }
 #btRun {
     background-color: #396;

@@ -1,0 +1,29 @@
+# Verifica se um número é primo ou não
+
+{
+  << "TESTE DE PRIMARIDADE\n";
+  << "Insira o número: ";
+  >> n;
+
+  i = 2;
+  1;?i * i > n? -> 2;
+    ?n % i != 0? -> 3;      
+      => 100; #não é primo
+      -> 4;
+    3;
+    i = i + 1;
+    -> 1;
+  2;
+  => 200; #é primo
+  4;
+}
+
+# imprime que não é primo
+100;
+<< n, " não é primo (= ", i, " * ", n/i, ")";
+<-;
+
+# imprime que é primo
+200;
+<< n, " é primo";
+<-;

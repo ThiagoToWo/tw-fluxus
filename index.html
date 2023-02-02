@@ -17,7 +17,8 @@
         <div class="main">
             <h3>Escreva seu código abaixo:</h3>
             <textarea id="code" cols="30" rows="10" placeholder='{<< "Hello, world!;"}'></textarea>
-            <div id="snipets">
+            <button id="btDisplaySnipets">Snipets &#9660;</button>
+            <div class="hide" id="snipets">
                 <input type="button" id="{}" value="{}"> 
                 <input type="button" id="[]" value="[]">
                 <input type="button" id="()" value="()">                
@@ -129,8 +130,8 @@ mult: * | / | %
 fator: (expr_lógica) | NÚMERO | identificador | identificador[expr_lógica] |
        "LETRA" | $identificador | $identificador[expr_lógica]
 
-MARCAÇÔES:
-comentários: "#"texto do comentários quebra-de-linha
+MARCAÇõES:
+comentários: "#"texto do comentário quebra-de-linha
             </pre>
         </div>
         <div class="clear"></div>
@@ -140,6 +141,9 @@ comentários: "#"texto do comentários quebra-de-linha
             </footer>
         </div>
     </div>
+    <script src="js/globals.js"></script> 
+    <script src="js/util.js"></script>    
+    <script src="js/tw.js"></script>  
     <script src="js/main.js"></script>
 </body>
 </html>
