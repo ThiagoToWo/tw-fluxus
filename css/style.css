@@ -64,11 +64,10 @@ button:active {
     background-color: rgb(171, 198, 226);
 }
 #snipets {
-    max-width: 80%;
     background-color: #369;
     border: solid 2px black;
     border-radius: 10px;
-    padding: 0px 25px 0px 33px;
+    padding-left: 5%;
     margin: 0 auto;
 }
 .hide {
