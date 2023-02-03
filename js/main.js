@@ -33,7 +33,7 @@ function markSnipet(e) {
     const simbol = element.id;
     codeArea.value = codeArea.value.slice(0, cursor) + simbol + codeArea.value.slice(cursor);
     codeArea.selectionStart = codeArea.selectionEnd = cursor + 1;
-    if (simbol == "  ")
+    if (element.className == "double")
         codeArea.selectionStart = codeArea.selectionEnd = cursor + 2;
 }
 
