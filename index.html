@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TW/Fluxus</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="all">
         <div class="header">
             <header>
                 <h1>Linguagem TW/Fluxus</h1>
                 <h2>Interpretador básico da linguagem TW/Fluxus</h2>
-            </header>            
+            </header>
         </div>
         <div class="main">
             <h3>Escreva seu código abaixo:</h3>
@@ -21,121 +23,581 @@
             <input type="button" id="btRun" value="Rodar">
             <input type="button" id="btReset" value="Limpar">
             <div class="hide" id="snipets">
-                <input type="button" id=";" value=";">                            
-                <input type="button" class="double" id="  " value="&#8677;">               
-                <input type="button" id='""' value='""'> 
+                <input type="button" id=";" value=";">
+                <input type="button" class="double" id="  " value="&#8677;">
+                <input type="button" id='""' value='""'>
                 <input type="button" id="?? ->" value="?? ->">
                 <input type="button" class="double" id="<<" value="<<">
-                <input type="button" class="double" id=">>" value=">>"> 
+                <input type="button" class="double" id=">>" value=">>">
                 <input type="button" class="double" id="->" value="->">
                 <input type="button" id="[]" value="[]">
                 <input type="button" id="=" value="=">
                 <input type="button" class="double" id="!=" value="!=">
                 <input type="button" id="<" value="<">
                 <input type="button" id=">" value=">">
-                <input type="button" id="\" value="\">               
-                <input type="button" id="," value=",">                            
+                <input type="button" id="\" value="\">
+                <input type="button" id="," value=",">
                 <input type="button" id="+" value="+">
                 <input type="button" id="-" value="-">
                 <input type="button" id="*" value="*">
                 <input type="button" id="/" value="/">
                 <input type="button" id="%" value="%">
                 <input type="button" id="|" value="|">
-                <input type="button" id="&" value="&">                
-                <input type="button" id="()" value="()">        
+                <input type="button" id="&" value="&">
+                <input type="button" id="()" value="()">
                 <input type="button" id="$" value="$">
-                <input type="button" id="{}" value="{}">           
+                <input type="button" id="{}" value="{}">
             </div>
             <h3>Resultado:</h3>
             <textarea id="result" cols="30" rows="10"></textarea>
         </div>
+        <div class="teaching">
+            <article>
+                <ol>
+                    <h1>TW/Fluxus</h1>
+                    <p>
+                        Linguagem imparativa, estruturada e procedural. Os comandos
+                        são curtos, baseados e poucos símbolos intuitivos, alguns
+                        comuns à outras linguagens. Ela visa simular, de maneira escrita,
+                        os fluxogramas. Abaixo mostraremos os comandos básicos e como
+                        simular as principais estruturas de seleção, de repetição e o uso de
+                        subrotinas. Os comentários da linguagem ficam em linhas iniciadas por #.
+                    </p>
+                    <li>
+                        <h3>Atribuição, leitura e impressão</h3>
+                    </li>
+                    <p>
+                        Para atribuir, ler e imprimir conteúdo numérico, fazemos dessa
+                        forma.
+                    </p>
+                    <pre>
+{
+    # Atribui 3 à variável a.
+    a = 3;
+
+    # Lê um valor numérico em b.
+    >> b;
+
+    # Imprime o valor de a e b separados por um
+    # espaço em branco.
+    << a, " ", b;
+}
+                    </pre>
+                    <p>
+                        Para atribuir, ler e imprimir conteúdo de texto, fazemos da
+                        forma abaixo.
+                    </p>
+                    <pre>
+{
+    # Atribui "amor" à variável $a.
+    $a = "amor";
+
+    # Lê um um conjunto de caracteres em $b.
+    >> $b;
+
+    # Imprime o valor de $a e $b separados por um
+    # espaço em branco.
+    << $a, " ", $b;
+}
+                    </pre>
+                    <p>
+                        Algumas manipulações podem ser em variáves com índices.
+                        Cada variável numérica pode ter o índice de 0 a 999999.
+                        O uso dos índices pode simular um array unidimensional de
+                        até 1000000 de elementos, ou um bidimensional de, no máximo,
+                        1000 x 1000 ou um tridimensional de 100 x 100 x 100, por exemplo, o
+                        que já é suficiente. Observe um exemplo de uso de índices em
+                        variáveis numéricas.
+                    </p>
+                    <pre>
+{
+    A = 1;
+
+    # A[0] é igual a A, logo A passará a ser 2.
+    # As variávels não são sensíveis ao caso, 
+    # portanto A ou a é a mesma coisa.
+    A[0] = 2;
+
+    # Imprime "2 2 2".
+    << A, " ", A[0], " ", a;
+
+    # Lê um valor em A[10] após pular linha e
+    # escrever "A[10] = ".
+    << "\nA[10] = ";
+    >> A[10];
+
+    # Imprime o valor de A[10].
+    << A[10];
+}
+                    </pre>
+                    <p>
+                        As variáveis de texto, quando tratadas com índices,
+                        representam caracteres únicos. O maior índice para
+                        uma variável de texto é 100000. Ou seja, o tamanho
+                        máximo de uma string.
+                    </p>
+                    <p>
+                        O exemplo abaixo ilustra esses casos.
+                    </p>
+                    <pre>
+{
+    # Atribui a palavra "Amor" à variável $a.
+    $a = "Amor";
+
+    # Imprime o valor de $a e pula linha.
+    << $a, "\n";
+
+    # troca a primeira letra de "Amor" por "E".
+    $a[0] = "E";
+
+    # troca a última letra de "Amor" por "s".
+    $a[3] = "s";
+
+    # Imprime "Emos".
+    << $a;
+}
+                    </pre>
+                    <p>
+                        Uma string, quando atribuída ou lida para um caractere, tem apenas
+                        sua primeira letra guardada de fato. Expressões numéricas,
+                        quando atribuídas a um caractere, se convertem ao caractere
+                        de valor ASCII da expressão. Por exemplo:
+                    </p>
+                    <pre>
+{
+    # Será interpretado como 'b', 
+    # o caractere ASCII de número 98.
+    $c[4] = 72 - 65 + 91;
+    << $c[4], "\n";
+
+    # Apenas o primeiro caractere 'A' será atribuído.
+    $b[10] = "Amor";
+    << $b[10], "\n";
+}
+                    </pre>
+                    <p>
+                        As expressões numéricas que são mistas com caracteres
+                        só serão impressas na forma numérica, onde o caractere
+                        terá seu valor tomado como o da tabela ASCII. Por exemplo:
+                    </p>
+                    <pre>
+{
+    # imprime 97 + 61 = 158, pois pois 97 é
+    # o valor do caractere 'a' na tabela ASCII.
+    << "a" + 61, "\n";
+
+    # Lê uma string em $t.
+    >> $t;
+
+    # Imprime a subtração do valor ASCII do primeiro
+    # caractere de $t com 12.
+    << $t - 12, "\n";
+
+    # Imprime 65 * 2 = 130, pois 65 é o valor ASCII de 'A',
+    # primeiro caractere de "Amor".
+    << "Amor" * 2;
+}
+                    </pre>
+                    <li>
+                        <h3>Desvio direto e desvio condicional</h3>
+                    </li>
+                    <p>
+                        Todo código é composto por uma sequência de declarações finalizadas
+                        e separadas por ponto e vírgula (;). Para desviar a execução da
+                        sequência e saltar para comandos posteriores ou anteriores no
+                        código, podemos fazer isso de forma direta ou condicional marcando
+                        rótulos numéricos em posições específicas.
+                    </p>
+                    <p>
+                        O desvio direto (goto) é feito por "-> rótulo", onde rótulo é um número
+                        real positivo. Rótulos podem ser acrescentados indefinidamente e serão
+                        ignorados pela sequência de execução caso não exista um desvio para eles.
+                    </p>
+                    <pre>
+{
+    # Atribui 2 à variável a.
+    a = 2;
+
+    # Um rótulo inútil, pois não há desvio para ele.
+    23;
+
+    # Desvia para o rótulo 1.
+    -> 1;
+
+    # Este comando não será executado. Logo,
+    # a não será incrementado para 3.
+    a = a + 1;
+
+    # O desvio anterior envia para essa posição com rótulo 1.
+    1;
+
+    # Será impresso 2.
+    << a;
+}
+                    </pre>
+                    <p>
+                        Para o desvio condicional usamos "?expressão lógica? -> rótulo".
+                        As expressões lógicas são avaliadas como verdadeira (1) ou falsa (0)
+                        e, quando verdadeiras, a execução é desviada para a posição do rótulo.
+                        Caso a expressão lógica seja falsa, o código continua na sequência
+                        original escrita.
+                    </p>
+                    <pre>
+{
+    # Lê um número em a.
+    >> a;
+
+    # Se a >= 5, desvia a execução para o rótulo 1.
+    ?a >= 5? -> 1;
+
+        # Caso a não seja maior ou igual a 5, imprime
+        # seu valor seguido do texto " é menor que 5".
+        << a, " é menor que 5";
+
+        # Desvia para o rótulo 2 para 
+        # terminar a execução.
+        -> 2;
+    1;
+        # Caso desvie para o rótulo 1, imprime seu
+        # valor seguido do texto " é maior ou igual a 5".
+        << a, " é maior ou igual a 5";
+    2; 
+}
+                    </pre>
+                    <li>
+                        <h3>Usando desvios para simular laços de repetição</h3>
+                    </li>
+                    <p>
+                        A combinação dos desvios diretos e condicionais simula tudo
+                        que se pode representado por um fluxograma, onde os rótulos são
+                        os nós para onde as setas enviam. Por isso, qualquer estrutura
+                        representável por fluxograma pode ser simulada combinando
+                        esses dois comandos básicos.
+                    </p>
+                    <p>
+                        Abaixo mostramos estas representações com comentários linha a linha
+                        na linguagem C.
+                    </p>
+                    <ol>
+                        <li>
+                            <h4>Laço do...while:</h4>
+                        </li>
+                        <img src="img/dowhile.jpg" alt="fluxograma do...while">
+                        <pre>
+# Imprime os dígitos de 0 a 9.
+#-TW/Fluxus---------#-C----------------------
+                    # #include < stdio.h >                           
+{                   # int main() {
+    i = 0;          #   int i = 0;
+                    #
+    1;              #   do {
+        << i;       #       printf("%d", i);
+        i = i + 1;  #       i++;
+    ?i < 10? -> 1;  #   } while (i < 10);
+}                   # }
+                        </pre>
+                        <li>
+                            <h4>Laço while:</h4>
+                        </li>
+                        <img src="img/while.jpg" alt="fluxograma while">
+                        <pre>
+# Calcula a média de uma quantidade indefinida
+# de números com valor de saída (-1).
+#-TW/Fluxus---------#-C----------------------
+                    # #include < stdio.h >                           
+{                   # int main() {
+    s = 0;          #   int s = 0;
+    i = 0;          #   int i = 0;
+                    #   int n;
+    >> n;           #   scanf("%d", &n);
+    1;              #
+    ?n == -1? -> 2; #   while (n != -1) {
+        i = i + 1;  #       i++;
+        s = s + n;  #       s += n;        
+        >> n;       #       scanf("%d", &n);
+        -> 1;       #   
+    2;              #   }
+    << s / i;       #   printf("%d", s / i);
+}                   # }
+                        </pre>
+                        <li>
+                            <h4>Laço for:</h4>
+                        </li>
+                        <img src="img/for.jpg" alt="fluxograma for">
+                        <pre>
+# Calcula a média de 10 números.
+#-TW/Fluxus-------------#-C----------------------
+                        # #include < stdio.h >                           
+{                       # int main() {
+    s = 0;              #   int s = 0;
+                        #   int n, i;
+    i = 0;              #
+    1; ?i >= 10? -> 2;  #   for (i = 0; i < 10; i++) {
+        >> n;           #       scanf("%d", &n);
+        s = s + n;      #       s += n;
+        i = i + 1;      #       
+        -> 1;           #   
+    2;                  #   }
+    << s / i;           #   printf("%d", s / i);
+}                       # }
+                        </pre>
+                    </ol>
+                    <li>
+                        <h3>Uso de subrotinas</h3>
+                    </li>
+                    <p>
+                        Todo programa é executado tendo início em "{" e terminando em "}".
+                        É possível dividir o código em módulos e chamá-los como subrotinas.
+                        O comando necessário para isso é "=> rótulo". Funciona como um desvio,
+                        porém, o rótulo deve estar fora dos limites do programa principal, isto é,
+                        após "}". No final de cada subrotina é necessário incluir o comando de
+                        retorno "<-" para que a execução volte para os limites principais depois de onde a subrotina foi
+                            chamada. </p>
+                            <p>
+                                Para ilustrar o uso de subrotinas, vamos mostrar um programa que verifica se
+                                um número é primo ou composto. Este programa estará em três versões, onde duas delas
+                                usam subrotinas com boas práticas.
+                            </p>
+                            <pre>
+# Determina se um número é primo ou não
+# sem usar subrotina.
+{
+    << "TESTE DE PRIMARIDADE\n";
+    << "Insira o número: ";
+    >> n;
+    ?n < 2? -> 4;
+    i = 2;
+    1;?i * i > n? -> 2;
+        ?n % i != 0? -> 3;
+            4;
+            << n, " não é primo";
+            -> 5;
+        3;
+            i = i + 1;
+            -> 1;
+    2;
+        << n, " é primo";
+    5;
+}
+                    </pre>
+                            <p>
+                                O trabalho de impressão dos resultados podem ser atribuídos à
+                                duas subrotinas distintas. Uma chamada pelo rótulo 100, para
+                                imprimir que não é primo, e outra chamada pelo rótulo 200, para
+                                imprimir que é primo.
+                            </p>
+                            <pre>
+# Determina se um número é primo ou não, chamando
+# subrotinas para imprimir os resultados.
+{
+    << "TESTE DE PRIMARIDADE\n";
+    << "Insira o número: ";
+    >> n;
+    ?n < 2? -> 4;
+    i = 2;
+    1;?i * i > n? -> 2;
+        ?n % i != 0? -> 3;
+            4;
+
+            # Chama a subrotina 100.
+            => 100;
+            -> 5;
+        3;
+            i = i + 1;
+            -> 1;
+    2;
+
+    # Chama a subrotina 200.
+    => 200; #é primo
+    5;
+}
+
+# Rótulo da subrotina 100.
+100;
+
+# Imprime que não é primo.
+<< n, " não é primo";
+
+# Retorna par o programa principal.
+<-;
+
+# Rótulo da subrotina 200.
+200;
+
+# Imprime que é primo.
+<< n, " é primo";
+
+# Retorna par o programa principal.
+<-;
+                    </pre>
+                            <p>
+                                O próprio processo de verificação de primalidade pode ser feito
+                                por uma subrotina. Porém, neste caso, o uso de uma variável global
+                                deve ser utilizado como forma de comunicação entre o programa principal
+                                e a subrotina.
+                            </p>
+                            <p>
+                                Observe no exemplo anterior que os rótulos 100 e 200 foram escolhidos como
+                                rótulos de subrotinas. Essa prática de escolher rótulos grandes, dos quais o código
+                                principal não ancalçaria, é importante para que não haja sobreposição ou ambiguidade
+                                nos desvios do programa.
+                            </p>
+                            <p>
+                                Da mesma forma, toma-se como variáveis globais de entrada e saída das
+                                subrotinas as variáveis com índices grandes e significativos, como por
+                                exemplo, o índice com o mesmo valor do rótulo da subrotina. Os rótulos
+                                internos da implementação da subrotina também devem ser grandes e inatingidos no
+                                programa principal. Pode-se usar números concatenados com o rótulo da subrotina.
+                                Isso evita o uso inadvertido na subrotina de uma variável do programa principal
+                                e vice-versa.
+                            </p>
+                            <p>
+                                Essa prática torna as subrotinas mais portáves e reutilizáveis em outros códigos. Porém,
+                                sempre
+                                conheça a implementação das subrotinas feitas por terceiros, para se certificar
+                                de que não há conflitos de variáveis com o seu código, pois TODAS AS VARIÁVELS EM
+                                TW/Fluxus SÃO GLOBAIS.
+                            </p>
+                            <pre>
+# Verifica se um número é primo ou não
+# usando uma subrotina de verificação
+# com variável global de comunicação.
+{
+    >> n;
+    p[100] = n;
+    => 100;
+    ?p[100]? -> 1;
+        << n, " não é primo";
+        -> 2;
+    1;
+        << n, " é primo";
+    2;
+}
+
+# Verifica se um número é primo ou não.
+# Entrada em p[100]. (número a ser testado)
+# Retorno em p[100]. (1 se for primo e 0 se não for)
+# Variável auxiliar i[100].
+# Rótulos internos 1100, 2100, 3100 e 4100.
+
+100;
+?p[100] < 2? -> 4100;
+i[100] = 2;
+1100;
+?i[100] * i[100] > p[100]? -> 2100;
+    ?p[100] % i[100] != 0? -> 3100;
+        4100;
+        p[100] = 0;
+        <-;
+    3100;
+        i[100] = i[100] + 1;
+        -> 1100;
+2100;
+p[100] = 1;
+<-;
+                    </pre>
+                </ol>
+            </article>
+        </div>
         <div class="definitions">
-            <pre>
-LINGUAGEM DE PROGRAMAÇÃO TW
-
-programa: {decl_sequência}
-
-decl_sequência: declaração; {declaração;}
-
-declaração: decl_atribuição | decl_leitura | decl_escrita |
-            decl_condicional | ramificação | subrotina |
-            rótulo | retorno
-
-ENTRADA/SAÍDA:
-decl_atribuição: atrib_numérica | atrib_texto
-
-atrib_numérica: identificador = expr_lógica {, expr_lógica} |
-                identificador[expr_lógica] = expr_lógica {, expr_lógica}
-
-atrib_texto: $identificador = "CADEIA" | $identificador[expr_lógica] = expr_lógica
-    OBS.: uma string, quando atribuída a um caractere, tem apenas sua primeira letra guardada de fato.
-          Expressões numéricas, quando atribuídas a um caractere, se convertem ao caractere de valor
-          ASCII da expressão.
-        Ex.: $c[4] = 72 - 65 + 91   (será interpretado como 'b', o caractere ASCII de número 98)
-        Ex.: $b[10] = "Amor"        (apenas o primeiro caractere 'A' será atribuído)
-
-decl_leitura: >> container {, container}
-
-container: identificador | identificador[expr_lógica] | 
-           $identificador | $identificador[expr_lógica]
-    OBS.: uma string, quando lida em um caractere, tem apenas sua primeira letra lida de fato.
-        Ex.: >> $s      (atribui todos os caracteres do buffer de leitura)
-        Ex.: >> $t[2]   (atribui apenas o primeiro caractere e descarta o resto do buffer de leitura)
-
-decl_escrita: << sintagma {, sintagma}
-
-sintagma: "CADEIA" | $identificador | $identificador[expr_lógica] | expr_lógica
-    Obs.: expressões que envolvam caracteres só serão impressas diretamente na forma numérica.
-        Ex.: << "a" + 61 (imprime 97 + 61 = 158, pois pois 97 é o valor do caractere 'a' na tabela ASCII)
-        Ex.: << $t - 12 (imprime a subtração do valor ASCII do primeiro caractere de $t com 12)
-        Ex.: << "Amor" * 2 (imprime 65 * 2 = 130, pois 65 é o valor ASCII de 'A', primeiro caractere de "Amor")
-
-identificador: LETRA
-    OBS.: Não é case sensitive.
-        Ex.: a ou A, b ou B, ..., z ou Z.
-
-COMANDOS:
-decl_condicional: ?expr_lógica? ramificação
-
-ramificação: -> rótulo
-
-subrotina: => rótulo
-
-rótulo: NÚMERO POSITIVO
-    
-retorno: <-
-
-CÁLCULOS:
-expr_lógica: expr_log_termo {disjunção expr_log_termo}
-
-disjunção: |
-
-expr_log_termo: expr_log_fator {conjunção expr_log_fator}
-
-conjunção: &
-
-expr_log_fator: expr_relacional [igualdade expr_relacional]
-
-igualdade: == | !=
-
-expr_relacional: expr_simples [desigualdade expr_simples]
-
-desigualdade: < | > | <= | >=
-
-expr_simples: termo {soma termo}
-
-soma: + | -
-
-termo: fator {mult fator}
-
-mult: * | / | %
-
-fator: (expr_lógica) | NÚMERO | identificador | identificador[expr_lógica] |
-       "LETRA" | $identificador | $identificador[expr_lógica]
-
-MARCAÇõES:
-comentários: "#"texto do comentário quebra-de-linha
-            </pre>
+            <div>
+                <h1>LINGUAGEM DE PROGRAMAÇÃO TW/FLUXUS</h1>
+                <dl>
+                    <dt>programa:</dt>
+                        <dd><i>{</i>decl_sequência<i>}</i></dd>
+                    <dt>decl_sequência:</dt>
+                        <dd>declaração<i>;</i> <b>{</b>declaração<i>;</i><b>}</b></dd>
+                    <dt>declaração:</dt> 
+                        <dd>decl_atribuição <b>|</b></dd>
+                        <dd>decl_leitura <b>|</b></dd>
+                        <dd>decl_escrita <b>|</b></dd>
+                        <dd>decl_condicional <b>|</b></dd>
+                        <dd>ramificação <b>|</b></dd>
+                        <dd>subrotina <b>|</b></dd>
+                        <dd>rótulo <b>|</b></dd>
+                        <dd>retorno</dd> 
+                    <h2>ENTRADA/SAÍDA:</h2>
+                    <dt>decl_atribuição:</dt> 
+                        <dd>atrib_numérica <b>|</b></dd>
+                        <dd>atrib_texto</dd>
+                    <dt>atrib_numérica:</dt>
+                        <dd>id <i>=</i> expr_lógica <b>{</b>, expr_lógica<b>}</b> <b>|</b></dd>
+                        <dd>id<i>[</i>expr_lógica<i>]</i> <i>=</i> expr_lógica <b>{</b>, expr_lógica<b>}</b></dd>
+                    <dt>atrib_texto:</dt>
+                        <dd><i>$</i>id <i>=</i> "CADEIA" <b>|</b></dd>
+                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i> <i>=</i> expr_lógica</dd>     
+                    <dt>decl_leitura:</dt>
+                        <dd><i>>></i> container <b>{</b>, container<b>}</b></dd>
+                    <dt>container:</dt>
+                        <dd>id <b>|</b></dd>
+                        <dd>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
+                        <dd><i>$</i>id <b>|</b></dd>
+                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i></dd>
+                    <dt>decl_escrita:</dt>
+                        <dd><i><<</i> sintagma <b>{</b>, sintagma<b>}</b></dd>
+                    <dt>sintagma:</dt>
+                        <dd><i>"</i>CADEIA<i>"</i> <b>|</b></dd>
+                        <dd><i>$</i>id <b>|</b></dd>
+                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
+                        <dd>expr_lógica</dd>
+                    <dt>id:</dt>
+                        <dd>LETRA</dd>
+                    <h2>COMANDOS:</h2>
+                    <dt>decl_condicional:</dt>
+                        <dd><i>?</i>expr_lógica<i>?</i> ramificação</dd>
+                    <dt>ramificação:</dt>
+                        <dd><i>-></i> rótulo</dd>
+                    <dt>subrotina:</dt>
+                        <dd><i>=></i> rótulo</dd>
+                    <dt>rótulo:</dt>
+                        <dd>NÚMERO POSITIVO</dd>
+                    <dt>retorno:</dt>
+                        <dd><i><-</i></dd>
+                    <h2>CÁLCULOS:</h2>                    
+                    <dt>expr_lógica:</dt>
+                        <dd>expr_log_termo <b>{</b>disjunção expr_log_termo<b>}</b></dd>
+                    <dt>disjunção:</dt>
+                        <dd><i>|</i></dd>
+                    <dt>expr_log_termo:</dt>
+                        <dd>expr_log_fator <b>{</b>conjunção expr_log_fator<b>}</b></dd>
+                    <dt>conjunção:</dt>
+                        <dd><i>&</i></dd>
+                    <dt>expr_log_fator:</dt>
+                        <dd>expr_relacional <b>[</b>igualdade expr_relacional<b>]</b></dd>
+                    <dt>igualdade:</dt>
+                        <dd><i>==</i> <b>|</b></dd>
+                        <dd><i>!=</i></dd>
+                    <dt>expr_relacional:</dt>
+                        <dd>expr_simples <b>[</b>desigualdade expr_simples<b>]</b></dd>
+                    <dt>desigualdade:</dt>
+                        <dd><i><</i> <b>|</b></dd>     
+                        <dd><i>></i> <b>|</b></dd>     
+                        <dd><i><=</i> <b>|</b></dd>     
+                        <dd><i>>=</i></dd>                    
+                    <dt>expr_simples:</dt>
+                        <dd>termo <b>{</b>soma termo<b>}</b></dd>
+                    <dt>soma:</dt>
+                        <dd><i>+</i> <b>|</b></dd>
+                        <dd><i>-</i></dd>
+                    <dt>termo:</dt>
+                        <dd>fator <b>{</b>mult fator<b>}</b></dd>
+                    <dt>mult:</dt>
+                        <dd><i>*</i> <b>|</b></dd>
+                        <dd><i>/</i> <b>|</b></dd>
+                        <dd><i>%</i></dd>
+                    <dt>fator:</dt>
+                        <dd><i>(</i>expr_lógica<i>)</i> <b>|</b></dd>
+                        <dd>NÚMERO <b>|</b></dd>
+                        <dd>id <b>|</b></dd>
+                        <dd>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
+                        <dd><i>"</i>LETRA<i>"</i> <b>|</b></dd>
+                        <dd><i>$</i>id <b>|</b></dd>
+                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i></dd>
+                    <h2>MARCAÇõES:</h2>
+                    <dt>comentários:</dt>
+                        <dd><i>#</i>texto do comentário quebra-de-linha</dd>
+                </dl>
+            </div>
         </div>
         <div class="clear"></div>
         <div class="footer">
@@ -144,9 +606,10 @@ comentários: "#"texto do comentário quebra-de-linha
             </footer>
         </div>
     </div>
-    <script src="js/globals.js"></script> 
-    <script src="js/util.js"></script>    
-    <script src="js/tw.js"></script>  
+    <script src="js/globals.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/tw.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

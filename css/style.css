@@ -1,7 +1,12 @@
 body {
-    background-color: #ccc;
+    background-color: #ccc; 
+    font: 16px/1.2 monospace;
 }
-.clear {clear: both;}     
+.clear {clear: both;}  
+img {
+    width: 170px;
+    height: 300px;
+}   
 .all {
     width: 96%;
     margin: 0 auto;
@@ -84,18 +89,23 @@ button:active {
     background-color: #936;
     color: #ffc;
 }
-.definitions {
-    width: 57%;
+.definitions,
+.teaching {
+    width: 85%;
     min-width: 300px;
     background-color: #fff;
     padding: 0px 10px;
     border: solid black 2px; 
     border-radius: 10px;
-    margin: 0 auto;  
+    margin: 10px auto;  
 }
-.definitions pre {
+pre {
+    width: 95%;
     overflow: auto;
+    border-radius: 8px;
     word-wrap: break-word;
+    background-color: #ffc;
+    padding: 5px 5px;
 }
 .footer {
     background-color: #369;
