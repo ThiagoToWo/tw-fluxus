@@ -148,6 +148,14 @@ function scanstr(s) {
     match("\"");
 }
 
+function join(s) {
+    let a = "";
+    for (let i = 0; i < s.length; i++) {
+        a += s[i];
+    }
+    return a;
+}
+
 function isspace(c) {
     return c == " " || c == "\n" || c == "\t";
 }

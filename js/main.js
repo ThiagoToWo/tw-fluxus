@@ -1,7 +1,7 @@
 /**FUNÇÕES PRINCIPAIS: eventos de botões*/
 function main() {
     varbl.fill(0);
-    str.fill(undefined);
+    str.fill([]);
     prog = [];
     cont = codeArea.value;
     optimize();

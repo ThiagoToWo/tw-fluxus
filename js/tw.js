@@ -61,11 +61,13 @@ function statement() {
             } else {
                 error(5); /*Invalid command*/
             }
-    }
-    if (isalpha(token) || token == "$") { /*assignment*/
-        assign();
-    } else if (isdigit(token)) { /*lable handle*/
-        label();
+            break;
+        default:
+            if (isalpha(token) || token == "$") { /*assignment*/
+                assign();
+            } else if (isdigit(token)) { /*lable handle*/
+                label();
+            }
     }
 }
 
@@ -88,26 +90,26 @@ function num_assign() {
         match("=");
         let i = 0;
         varbl[index.value * VARMAX + i] = logical_expr();
-        while (token == "," && i <= VARLEN) {
+        while (token == "," && i < VARLEN) {
             match(",");
             ++i;
             varbl[index.value * VARMAX + i] = logical_expr();
         }
-        if (i > VARLEN) error(13); /*the array is out of bounds*/
+        if (i >= VARLEN) error(13); /*the array is out of bounds*/
     } else if (token == "[") {
         match("[");
         let i = logical_expr();
-        if (i > VARLEN) error(13); /*the array is out of bounds*/
+        if (i >= VARLEN) error(13); /*the array is out of bounds*/
         match("]");
         if (token == "=") {
             match("=");
             varbl[index.value * VARMAX + i] = logical_expr();
-            while (token == "," && i <= VARLEN) {
+            while (token == "," && i < VARLEN) {
                 match(",");
                 i++;
                 varbl[index.value * VARMAX + i] = logical_expr();
             }
-            if (i > VARLEN) error(13); /*the array is out of bounds*/
+            if (i >= VARLEN) error(13); /*the array is out of bounds*/
         } else {
             error(8); /*= expected*/
         }
@@ -132,7 +134,7 @@ function text_assign() {
         match("]");
         if (token == "=") {
             match("=");
-            str[index.value][i] = logical_expr();
+            str[index.value][i] = String.fromCharCode(logical_expr());
         } else {
             error(8); /*= expected*/
         }
@@ -157,7 +159,7 @@ function container() {
         if (token == "[") {
             match("[");
             const i = logical_expr();
-            if (i > VARLEN) error(13); /*the array is out of bounds*/
+            if (i >= VARLEN) error(13); /*the array is out of bounds*/
             match("]");
             varbl[index.value * VARMAX + i] = Number(prompt("Número: "));
             resultArea.value += varbl[index.value * VARMAX + i] + "\n";
@@ -171,7 +173,7 @@ function container() {
         if (token == "[") {
             match("[");
             const i = logical_expr();
-            if (i > STRLEN - 1) error(13); /*the array is out of bounds*/
+            if (i > STRLEN) error(13); /*the array is out of bounds*/
             match("]");
             let string = prompt("Caractere: ");
             str[index.value][i] = string[0];
@@ -201,7 +203,7 @@ function sintagma() {
         while (prog[idx + i] != "\"") i++;
         if (prog[idx + i + 1] == ";" || prog[idx + i + 1] == ",") {
             scanstr(string);
-            resultArea.value += string.join("");
+            resultArea.value += join(string);
         } else {
             result = logical_expr();
             resultArea.value += result;
@@ -212,7 +214,7 @@ function sintagma() {
         if (prog[idx + 2] == ";" || prog[idx + 2] == ",") {
             match("$");
             id(variable, index);
-            resultArea.value += str[index.value].join("");
+            resultArea.value += join(str[index.value]);
         } else if (prog[idx + 2] == "[") {
             let i = 3;
             while (prog[idx + i] != "]") i++;
@@ -221,13 +223,16 @@ function sintagma() {
                 id(variable, index);
                 match("[");
                 const i = logical_expr();
-                if (i > STRLEN - 1) error(13); /*the array is out of bounds*/
+                if (i > STRLEN) error(13); /*the array is out of bounds*/
                 match("]");
                 resultArea.value += str[index.value][i];
             } else {
                 result = logical_expr();
                 resultArea.value += result;
             }
+        } else {
+            result = logical_expr();
+            resultArea.value += result;
         }
     } else {
         result = logical_expr();
@@ -426,7 +431,7 @@ function factor() {
         }
     } else if (token == "\"") {
         scanstr(string);
-        temp.value = string[0];
+        temp.value = string[0].charCodeAt(0);
     } else if (token == "$") {
         match("$");
         const variable = { value: undefined };
@@ -436,9 +441,9 @@ function factor() {
             match("[");
             const i = logical_expr();
             match("]");
-            temp.value = str[index.value][i];
+            temp.value = str[index.value][i].charCodeAt(0);
         } else {
-            temp.value = str[index.value];
+            temp.value = str[index.value][0].charCodeAt(0);
         }
     } else {
         error(2); /*Not a valid expression*/

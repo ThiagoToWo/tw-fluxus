@@ -56,10 +56,13 @@
                 <ol>
                     <h1>TW/Fluxus</h1>
                     <p>
-                        Linguagem imparativa, estruturada e procedural. Os comandos
-                        são curtos, baseados e poucos símbolos intuitivos, alguns
+                        TW/Fluxus é uma linguagem imparativa, estruturada e procedural.
+                        Os comandos são curtos, baseados e poucos símbolos intuitivos, alguns
                         comuns à outras linguagens. Ela visa simular, de maneira escrita,
-                        os fluxogramas. Abaixo mostraremos os comandos básicos e como
+                        os fluxogramas.
+                    </p>
+                    <p>
+                        Abaixo mostraremos os comandos básicos e como
                         simular as principais estruturas de seleção, de repetição e o uso de
                         subrotinas. Os comentários da linguagem ficam em linhas iniciadas por #.
                     </p>
@@ -78,8 +81,8 @@
     # Lê um valor numérico em b.
     >> b;
 
-    # Imprime o valor de a e b separados por um
-    # espaço em branco.
+    # Imprime o valor de a e b separados
+    # por um espaço em branco.
     << a, " ", b;
 }
                     </pre>
@@ -95,8 +98,8 @@
     # Lê um um conjunto de caracteres em $b.
     >> $b;
 
-    # Imprime o valor de $a e $b separados por um
-    # espaço em branco.
+    # Imprime o valor de $a e $b separados
+    # por um espaço em branco.
     << $a, " ", $b;
 }
                     </pre>
@@ -105,9 +108,11 @@
                         Cada variável numérica pode ter o índice de 0 a 999999.
                         O uso dos índices pode simular um array unidimensional de
                         até 1000000 de elementos, ou um bidimensional de, no máximo,
-                        1000 x 1000 ou um tridimensional de 100 x 100 x 100, por exemplo, o
-                        que já é suficiente. Observe um exemplo de uso de índices em
-                        variáveis numéricas.
+                        1000 x 1000 ou um tridimensional de 100 x 100 x 100, o
+                        que já é um tamanho suficiente para a maioria dos usos.
+                    </p>
+                    <p>
+                        Observe um exemplo de uso de índices em variáveis numéricas.
                     </p>
                     <pre>
 {
@@ -121,8 +126,8 @@
     # Imprime "2 2 2".
     << A, " ", A[0], " ", a;
 
-    # Lê um valor em A[10] após pular linha e
-    # escrever "A[10] = ".
+    # Lê um valor em A[10] após pular
+    # linha e escrever "A[10] = ".
     << "\nA[10] = ";
     >> A[10];
 
@@ -134,23 +139,27 @@
                         As variáveis de texto, quando tratadas com índices,
                         representam caracteres únicos. O maior índice para
                         uma variável de texto é 100000. Ou seja, o tamanho
-                        máximo de uma string.
+                        máximo de uma string é 100000.
                     </p>
                     <p>
                         O exemplo abaixo ilustra esses casos.
                     </p>
                     <pre>
 {
-    # Atribui a palavra "Amor" à variável $a.
+    # Atribui a palavra "Amor"
+    # à variável $a.
     $a = "Amor";
 
-    # Imprime o valor de $a e pula linha.
+    # Imprime o valor de $a
+    # e pula linha.
     << $a, "\n";
 
-    # troca a primeira letra de "Amor" por "E".
+    # troca a primeira letra
+    # de "Amor" por "E".
     $a[0] = "E";
 
-    # troca a última letra de "Amor" por "s".
+    # troca a última letra
+    # de "Amor" por "s".
     $a[3] = "s";
 
     # Imprime "Emos".
@@ -170,9 +179,18 @@
     $c[4] = 72 - 65 + 91;
     << $c[4], "\n";
 
-    # Apenas o primeiro caractere 'A' será atribuído.
+    # Lê apenas o primeiro caractere
+    # de uma string em $t[3].
+    >> $t[3];
+
+    # Apenas o único caractere
+    # de $t será impresso.
+    << $t[3], "\n";
+
+    # Apenas o primeiro caractere
+    # 'A' será atribuído.
     $b[10] = "Amor";
-    << $b[10], "\n";
+    << $b[10];
 }
                     </pre>
                     <p>
@@ -269,14 +287,14 @@
                     </li>
                     <p>
                         A combinação dos desvios diretos e condicionais simula tudo
-                        que se pode representado por um fluxograma, onde os rótulos são
-                        os nós para onde as setas enviam. Por isso, qualquer estrutura
+                        que pode ser representado por um fluxograma, onde os rótulos são
+                        os nós para onde as setas desviam. Por isso, qualquer estrutura
                         representável por fluxograma pode ser simulada combinando
                         esses dois comandos básicos.
                     </p>
                     <p>
-                        Abaixo mostramos estas representações com comentários linha a linha
-                        na linguagem C.
+                        Abaixo mostraremos estas representações com comentários linha a linha
+                        da mesma implementação, mas na linguagem C.
                     </p>
                     <ol>
                         <li>
@@ -349,10 +367,11 @@
                         Todo programa é executado tendo início em "{" e terminando em "}".
                         É possível dividir o código em módulos e chamá-los como subrotinas.
                         O comando necessário para isso é "=> rótulo". Funciona como um desvio,
-                        porém, o rótulo deve estar fora dos limites do programa principal, isto é,
-                        após "}". No final de cada subrotina é necessário incluir o comando de
-                        retorno "<-" para que a execução volte para os limites principais depois de onde a subrotina foi
-                            chamada. </p>
+                        porém, o rótulo de uma subrotina deve estar fora dos limites do programa
+                        principal, isto é, após "}". No final de cada subrotina é necessário incluir
+                        o comando de retorno "<-" para que a execução volte aos limites do programa
+                        principal para o ponto logo após onde a subrotina foi chamada. 
+                    </p>
                             <p>
                                 Para ilustrar o uso de subrotinas, vamos mostrar um programa que verifica se
                                 um número é primo ou composto. Este programa estará em três versões, onde duas delas
@@ -382,8 +401,8 @@
                     </pre>
                             <p>
                                 O trabalho de impressão dos resultados podem ser atribuídos à
-                                duas subrotinas distintas. Uma chamada pelo rótulo 100, para
-                                imprimir que não é primo, e outra chamada pelo rótulo 200, para
+                                duas subrotinas distintas. Neste exemplo, uma é chamada no rótulo 100,
+                                para imprimir que não é primo, e outra é chamada no rótulo 200, para
                                 imprimir que é primo.
                             </p>
                             <pre>
@@ -452,7 +471,7 @@
                                 e vice-versa.
                             </p>
                             <p>
-                                Essa prática torna as subrotinas mais portáves e reutilizáveis em outros códigos. Porém,
+                                Essa prática torna as subrotinas mais portáveis e reutilizáveis em outros códigos. Porém,
                                 sempre
                                 conheça a implementação das subrotinas feitas por terceiros, para se certificar
                                 de que não há conflitos de variáveis com o seu código, pois TODAS AS VARIÁVELS EM
@@ -504,98 +523,101 @@ p[100] = 1;
                 <h1>LINGUAGEM DE PROGRAMAÇÃO TW/FLUXUS</h1>
                 <dl>
                     <dt>programa:</dt>
-                        <dd><i>{</i>decl_sequência<i>}</i></dd>
+                    <dd><i>{</i>decl_sequência<i>}</i></dd>
                     <dt>decl_sequência:</dt>
-                        <dd>declaração<i>;</i> <b>{</b>declaração<i>;</i><b>}</b></dd>
-                    <dt>declaração:</dt> 
-                        <dd>decl_atribuição <b>|</b></dd>
-                        <dd>decl_leitura <b>|</b></dd>
-                        <dd>decl_escrita <b>|</b></dd>
-                        <dd>decl_condicional <b>|</b></dd>
-                        <dd>ramificação <b>|</b></dd>
-                        <dd>subrotina <b>|</b></dd>
-                        <dd>rótulo <b>|</b></dd>
-                        <dd>retorno</dd> 
+                    <dd>declaração<i>;</i> <b>{</b>declaração<i>;</i><b>}</b></dd>
+                    <dt>declaração:</dt>
+                    <dd>decl_atribuição <b>|</b></dd>
+                    <dd>decl_leitura <b>|</b></dd>
+                    <dd>decl_escrita <b>|</b></dd>
+                    <dd>decl_condicional <b>|</b></dd>
+                    <dd>ramificação <b>|</b></dd>
+                    <dd>subrotina <b>|</b></dd>
+                    <dd>rótulo <b>|</b></dd>
+                    <dd>retorno</dd>
                     <h2>ENTRADA/SAÍDA:</h2>
-                    <dt>decl_atribuição:</dt> 
-                        <dd>atrib_numérica <b>|</b></dd>
-                        <dd>atrib_texto</dd>
+                    <dt>decl_atribuição:</dt>
+                    <dd>atrib_numérica <b>|</b></dd>
+                    <dd>atrib_texto</dd>
                     <dt>atrib_numérica:</dt>
-                        <dd>id <i>=</i> expr_lógica <b>{</b>, expr_lógica<b>}</b> <b>|</b></dd>
-                        <dd>id<i>[</i>expr_lógica<i>]</i> <i>=</i> expr_lógica <b>{</b>, expr_lógica<b>}</b></dd>
+                    <dd>id <i>=</i> expr_lógica <b>{</b>, expr_lógica<b>}</b> <b>|</b></dd>
+                    <dd>id<i>[</i>expr_lógica<i>]</i> <i>=</i> expr_lógica <b>{</b>, expr_lógica<b>}</b></dd>
                     <dt>atrib_texto:</dt>
-                        <dd><i>$</i>id <i>=</i> "CADEIA" <b>|</b></dd>
-                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i> <i>=</i> expr_lógica</dd>     
+                    <dd><i>$</i>id <i>=</i> "CADEIA" <b>|</b></dd>
+                    <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i> <i>=</i> expr_lógica</dd>
                     <dt>decl_leitura:</dt>
-                        <dd><i>>></i> container <b>{</b>, container<b>}</b></dd>
+                    <dd><i>>></i> container <b>{</b>, container<b>}</b></dd>
                     <dt>container:</dt>
-                        <dd>id <b>|</b></dd>
-                        <dd>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
-                        <dd><i>$</i>id <b>|</b></dd>
-                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i></dd>
+                    <dd>id <b>|</b></dd>
+                    <dd>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
+                    <dd><i>$</i>id <b>|</b></dd>
+                    <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i></dd>
                     <dt>decl_escrita:</dt>
-                        <dd><i><<</i> sintagma <b>{</b>, sintagma<b>}</b></dd>
+                    <dd><i>
+                            <<< /i> sintagma <b>{</b>, sintagma<b>}</b></dd>
                     <dt>sintagma:</dt>
-                        <dd><i>"</i>CADEIA<i>"</i> <b>|</b></dd>
-                        <dd><i>$</i>id <b>|</b></dd>
-                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
-                        <dd>expr_lógica</dd>
+                    <dd><i>"</i>CADEIA<i>"</i> <b>|</b></dd>
+                    <dd><i>$</i>id <b>|</b></dd>
+                    <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
+                    <dd>expr_lógica</dd>
                     <dt>id:</dt>
-                        <dd>LETRA</dd>
+                    <dd>LETRA</dd>
                     <h2>COMANDOS:</h2>
                     <dt>decl_condicional:</dt>
-                        <dd><i>?</i>expr_lógica<i>?</i> ramificação</dd>
+                    <dd><i>?</i>expr_lógica<i>?</i> ramificação</dd>
                     <dt>ramificação:</dt>
-                        <dd><i>-></i> rótulo</dd>
+                    <dd><i>-></i> rótulo</dd>
                     <dt>subrotina:</dt>
-                        <dd><i>=></i> rótulo</dd>
+                    <dd><i>=></i> rótulo</dd>
                     <dt>rótulo:</dt>
-                        <dd>NÚMERO POSITIVO</dd>
+                    <dd>NÚMERO POSITIVO</dd>
                     <dt>retorno:</dt>
-                        <dd><i><-</i></dd>
-                    <h2>CÁLCULOS:</h2>                    
+                    <dd><i><-< /i></dd>
+                    <h2>CÁLCULOS:</h2>
                     <dt>expr_lógica:</dt>
-                        <dd>expr_log_termo <b>{</b>disjunção expr_log_termo<b>}</b></dd>
+                    <dd>expr_log_termo <b>{</b>disjunção expr_log_termo<b>}</b></dd>
                     <dt>disjunção:</dt>
-                        <dd><i>|</i></dd>
+                    <dd><i>|</i></dd>
                     <dt>expr_log_termo:</dt>
-                        <dd>expr_log_fator <b>{</b>conjunção expr_log_fator<b>}</b></dd>
+                    <dd>expr_log_fator <b>{</b>conjunção expr_log_fator<b>}</b></dd>
                     <dt>conjunção:</dt>
-                        <dd><i>&</i></dd>
+                    <dd><i>&</i></dd>
                     <dt>expr_log_fator:</dt>
-                        <dd>expr_relacional <b>[</b>igualdade expr_relacional<b>]</b></dd>
+                    <dd>expr_relacional <b>[</b>igualdade expr_relacional<b>]</b></dd>
                     <dt>igualdade:</dt>
-                        <dd><i>==</i> <b>|</b></dd>
-                        <dd><i>!=</i></dd>
+                    <dd><i>==</i> <b>|</b></dd>
+                    <dd><i>!=</i></dd>
                     <dt>expr_relacional:</dt>
-                        <dd>expr_simples <b>[</b>desigualdade expr_simples<b>]</b></dd>
+                    <dd>expr_simples <b>[</b>desigualdade expr_simples<b>]</b></dd>
                     <dt>desigualdade:</dt>
-                        <dd><i><</i> <b>|</b></dd>     
-                        <dd><i>></i> <b>|</b></dd>     
-                        <dd><i><=</i> <b>|</b></dd>     
-                        <dd><i>>=</i></dd>                    
+                    <dd><i>
+                            << /i> <b>|</b></dd>
+                    <dd><i>></i> <b>|</b></dd>
+                    <dd><i>
+                            <=< /i> <b>|</b></dd>
+                    <dd><i>>=</i></dd>
                     <dt>expr_simples:</dt>
-                        <dd>termo <b>{</b>soma termo<b>}</b></dd>
+                    <dd>termo <b>{</b>soma termo<b>}</b></dd>
                     <dt>soma:</dt>
-                        <dd><i>+</i> <b>|</b></dd>
-                        <dd><i>-</i></dd>
+                    <dd><i>+</i> <b>|</b></dd>
+                    <dd><i>-</i></dd>
                     <dt>termo:</dt>
-                        <dd>fator <b>{</b>mult fator<b>}</b></dd>
+                    <dd>fator <b>{</b>mult fator<b>}</b></dd>
                     <dt>mult:</dt>
-                        <dd><i>*</i> <b>|</b></dd>
-                        <dd><i>/</i> <b>|</b></dd>
-                        <dd><i>%</i></dd>
+                    <dd><i>*</i> <b>|</b></dd>
+                    <dd><i>/</i> <b>|</b></dd>
+                    <dd><i>%</i></dd>
                     <dt>fator:</dt>
-                        <dd><i>(</i>expr_lógica<i>)</i> <b>|</b></dd>
-                        <dd>NÚMERO <b>|</b></dd>
-                        <dd>id <b>|</b></dd>
-                        <dd>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
-                        <dd><i>"</i>LETRA<i>"</i> <b>|</b></dd>
-                        <dd><i>$</i>id <b>|</b></dd>
-                        <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i></dd>
+                    <dd><i>(</i>expr_lógica<i>)</i> <b>|</b></dd>
+                    <dd>NÚMERO <b>|</b></dd>
+                    <dd>id <b>|</b></dd>
+                    <dd>id<i>[</i>expr_lógica<i>]</i> <b>|</b></dd>
+                    <dd><i>"</i>LETRA<i>"</i> <b>|</b></dd>
+                    <dd><i>$</i>id <b>|</b></dd>
+                    <dd><i>$</i>id<i>[</i>expr_lógica<i>]</i></dd>
                     <h2>MARCAÇõES:</h2>
                     <dt>comentários:</dt>
-                        <dd><i>#</i>texto do comentário quebra-de-linha</dd>
+                    <dd><i>#</i>texto do comentário quebra-de-linha</dd>
                 </dl>
             </div>
         </div>
