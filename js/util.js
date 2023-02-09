@@ -127,7 +127,7 @@ function scannum(n) {
 function scanstr(s) {
     match("\"");
     let i = 0;
-    while (token != "\"" && i <= STRLEN + 1) {
+    while (token != "\"" && i <= STRLEN) {
         if (token == "\\") {
             getnext();
             switch (token) {
