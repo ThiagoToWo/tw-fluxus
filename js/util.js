@@ -127,7 +127,7 @@ function scannum(n) {
 function scanstr(s) {
     match("\"");
     let i = 0;
-    while (token != "\"" && i < STRLEN - 1) {
+    while (token != "\"" && i < STRLEN) {
         if (token == "\\") {
             getnext();
             switch (token) {
@@ -144,7 +144,7 @@ function scanstr(s) {
         }
         getnext();
     }
-    if (i == STRLEN - 1) error(12); /*the string has more than 100000 characters*/
+    if (i == STRLEN) error(12); /*the string has more than 100000 characters*/
     match("\"");
 }
 

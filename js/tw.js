@@ -173,7 +173,7 @@ function container() {
         if (token == "[") {
             match("[");
             const i = logical_expr();
-            if (i > STRLEN) error(13); /*the array is out of bounds*/
+            if (i >= STRLEN) error(13); /*the array is out of bounds*/
             match("]");
             let string = prompt("Caractere: ");
             str[index.value][i] = string[0];
@@ -223,7 +223,7 @@ function sintagma() {
                 id(variable, index);
                 match("[");
                 const i = logical_expr();
-                if (i > STRLEN) error(13); /*the array is out of bounds*/
+                if (i >= STRLEN) error(13); /*the array is out of bounds*/
                 match("]");
                 resultArea.value += str[index.value][i];
             } else {
