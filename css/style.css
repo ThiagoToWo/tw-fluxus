@@ -6,7 +6,7 @@ body {
 img {
     width: 170px;
     height: 300px;
-}   
+}  
 .all {
     width: 96%;
     margin: 0 auto;
@@ -106,6 +106,9 @@ pre {
     word-wrap: break-word;
     background-color: #ffc;
     padding: 5px 5px;
+}
+b {
+    color: #936;
 }
 .footer {
     background-color: #369;

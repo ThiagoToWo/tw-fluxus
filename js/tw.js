@@ -162,9 +162,17 @@ function container() {
             if (i >= VARLEN) error(13); /*the array is out of bounds*/
             match("]");
             varbl[index.value * VARMAX + i] = Number(prompt("Número: "));
+            while (Number.isNaN(varbl[index.value * VARMAX + i])) {
+                alert("Digite um número!");
+                varbl[index.value * VARMAX + i] = Number(prompt("Número: "));
+            }
             resultArea.value += varbl[index.value * VARMAX + i] + "\n";
         } else {
             varbl[index.value * VARMAX] = Number(prompt("Número: "));
+            while (Number.isNaN(varbl[index.value * VARMAX])) {
+                alert("Digite um número!");
+                varbl[index.value * VARMAX] = Number(prompt("Número: "));
+            }
             resultArea.value += varbl[index.value * VARMAX] + "\n";
         }
     } else if (token == "$") {
