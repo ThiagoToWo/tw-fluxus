@@ -109,7 +109,7 @@
                         O uso dos índices pode simular um array unidimensional de
                         até 1000000 de elementos ou, por exemplo, um bidimensional de
                         1000 x 1000 ou um tridimensional de 100 x 100 x 100, o
-                        que já é um tamanho suficiente para a maioria dos usos.
+                        que já é um tamanho suficiente para a maioria dos casos.
                     </p>
                     <p>
                         Observe um exemplo de uso de índices em variáveis numéricas.
@@ -300,7 +300,7 @@
                         <li>
                             <h4>Laço do...while:</h4>
                         </li>
-                        <img src="img/dowhile.jpg" alt="fluxograma do...while">
+                        <img class="small" src="img/dowhile.jpg" alt="fluxograma do...while">
                         <pre>
 # Imprime os dígitos de 0 a 9.
 #-TW/Fluxus---------#-C----------------------
@@ -317,7 +317,7 @@
                         <li>
                             <h4>Laço while:</h4>
                         </li>
-                        <img src="img/while.jpg" alt="fluxograma while">
+                        <img class="small" src="img/while.jpg" alt="fluxograma while">
                         <pre>
 # Calcula a média de uma quantidade indefinida
 # de números com valor de saída (-1).
@@ -341,7 +341,7 @@
                         <li>
                             <h4>Laço for:</h4>
                         </li>
-                        <img src="img/for.jpg" alt="fluxograma for">
+                        <img class="small" src="img/for.jpg" alt="fluxograma for">
                         <pre>
 # Calcula a média de 10 números.
 #-TW/Fluxus-------------#-C----------------------
@@ -369,15 +369,15 @@
                         O comando necessário para isso é "=> rótulo". Funciona como um desvio,
                         porém, o rótulo de uma subrotina deve estar fora dos limites do programa
                         principal, isto é, após "}". No final de cada subrotina é necessário incluir
-                        o comando de retorno "<-" para que a execução volte aos limites do programa
-                        principal para o ponto logo após onde a subrotina foi chamada. 
+                        o comando de retorno "<-" para que a execução volte aos limites do programa principal para o
+                            ponto logo após onde a subrotina foi chamada. 
                     </p>
-                            <p>
-                                Para ilustrar o uso de subrotinas, vamos mostrar um programa que verifica se
-                                um número é primo ou composto. Este programa estará em três versões, onde duas delas
-                                usam subrotinas com boas práticas.
-                            </p>
-                            <pre>
+                    <p>
+                        Para ilustrar o uso de subrotinas, vamos mostrar um programa que verifica se
+                        um número é primo ou composto. Este programa estará em três versões, onde duas delas
+                        usam subrotinas com boas práticas.
+                    </p>
+                    <pre>
 # Determina se um número é primo ou não
 # sem usar subrotina.
 {
@@ -399,13 +399,13 @@
     5;
 }
                     </pre>
-                            <p>
-                                O trabalho de impressão dos resultados podem ser atribuídos à
-                                duas subrotinas distintas. Neste exemplo, uma é chamada no rótulo 100,
-                                para imprimir que não é primo, e outra é chamada no rótulo 200, para
-                                imprimir que é primo.
-                            </p>
-                            <pre>
+                    <p>
+                        O trabalho de impressão dos resultados podem ser atribuídos à
+                        duas subrotinas distintas. Neste exemplo, uma é chamada no rótulo 100,
+                        para imprimir que não é primo, e outra é chamada no rótulo 200, para
+                        imprimir que é primo.
+                    </p>
+                    <pre>
 # Determina se um número é primo ou não, chamando
 # subrotinas para imprimir os resultados.
 {
@@ -449,35 +449,34 @@
 # Retorna par o programa principal.
 <-;
                     </pre>
-                            <p>
-                                O próprio processo de verificação de primalidade pode ser feito
-                                por uma subrotina. Porém, neste caso, uma variável global
-                                deve ser utilizada como forma de comunicação entre o programa principal
-                                e a subrotina.
-                            </p>
-                            <p>
-                                Observe no exemplo anterior que os rótulos 100 e 200 foram escolhidos como
-                                rótulos de subrotinas. Essa prática de escolher rótulos grandes, dos quais o código
-                                principal não ancalçaria, é importante para que não haja sobreposição ou ambiguidade
-                                nos desvios do programa.
-                            </p>
-                            <p>
-                                Da mesma forma, toma-se como variáveis globais de entrada e saída das
-                                subrotinas as variáveis com índices grandes e significativos, como por
-                                exemplo, o índice com o mesmo valor do rótulo da subrotina. Os rótulos
-                                internos da implementação da subrotina também devem ser grandes e inatingidos no
-                                programa principal. Pode-se usar números concatenados com o rótulo da subrotina.
-                                Isso evita o uso inadvertido na subrotina de uma variável do programa principal
-                                e vice-versa.
-                            </p>
-                            <p>
-                                Essa prática torna as subrotinas mais portáveis e reutilizáveis em outros códigos. Porém,
-                                sempre
-                                conheça a implementação das subrotinas feitas por terceiros, para se certificar
-                                de que não há conflitos de variáveis com o seu código, pois <strong>TODAS AS VARIÁVELS EM
-                                TW/Fluxus SÃO GLOBAIS</strong>.
-                            </p>
-                            <pre>
+                    <p>
+                        O próprio processo de verificação de primalidade pode ser feito
+                        por uma subrotina. Porém, neste caso, uma variável global
+                        deve ser utilizada como forma de comunicação entre o programa principal
+                        e a subrotina.
+                    </p>
+                    <p>
+                        Observe no exemplo anterior que os rótulos 100 e 200 foram escolhidos como
+                        rótulos de subrotinas. Essa prática de escolher rótulos grandes, dos quais o código
+                        principal não ancalçaria, é importante para que não haja sobreposição ou ambiguidade
+                        nos desvios do programa.
+                    </p>
+                    <p>
+                        Da mesma forma, toma-se como variáveis globais de entrada e saída das
+                        subrotinas as variáveis com índices grandes e significativos, como por
+                        exemplo, o índice com o mesmo valor do rótulo da subrotina. Os rótulos
+                        internos da implementação da subrotina também devem ser grandes e inatingidos no
+                        programa principal. Pode-se usar números concatenados com o rótulo da subrotina.
+                        Isso evita o uso inadvertido na subrotina de uma variável do programa principal
+                        e vice-versa.
+                    </p>
+                    <p>
+                        Essa prática torna as subrotinas mais portáveis e reutilizáveis em outros códigos.
+                        Porém, sempre conheça a implementação das subrotinas feitas por terceiros, para se certificar
+                        de que não há conflitos de variáveis com o seu código, pois <strong>TODAS AS VARIÁVELS
+                        EM TW/Fluxus SÃO GLOBAIS</strong>.
+                    </p>
+                    <pre>
 # Verifica se um número é primo ou não
 # usando uma subrotina de verificação
 # com variável global de comunicação.
@@ -517,6 +516,350 @@ i[100] = 2;
     p[100] = 1;
     <-;
                     </pre>
+                    <li>
+                        <h3> TW/Fluxus no terminal</h3>
+                    </li>
+                    <p>
+                        A linguagem TW/Fluxus foi originalmente desenvolvida em C para ser executada
+                        no terminal de comandos de uma máquina. Nessa versão, cujo interpretador pode
+                        ser baixado <a href="https://github.com/ThiagoToWo/tw">clicando aqui</a>, o arquivo
+                        principal é o executável tw.exe. 
+                    </p>
+                    <p>
+                        Abra no terminal a pasta onde se encontra o arquivo tw.exe e execute o comando tw. Irá
+                        aparecer no terminal o seguinte texto.
+                    </p>
+                    <pre>
+tw      version: x.x.x
+Use: tw < file_path > [< options >]
+Options availables:
+        c:      print program content text.
+        p:      print program content optimized.
+        cp:     print text and optimized program content.
+                    </pre>
+                    <p>
+                        Ou seja, para executar um código, você deve digitar "tw" e o endereço do código fonte. É opcional
+                        acrescentar após o endereço do arquivo as letras "c" para imprimir o conteúdo do programa
+                        por você formatado; "p" para imprimir o conteúdo otimizado do programa sem quebra de linhas, comentários
+                        e espaços em branco (a versão que será interpretada); e "cp" para imprimir os dois tipos de conteúdo.
+                    </p>
+                    <p>
+                        Dica: faça uma cópia do arquivo tw.exe para as pastas onde ficarão os códigos fontes.
+                        Isso simplifica a entrada do endereço.
+                    </p>
+                    <p>
+                        Outra coisa que é possível fazer usando o TW/Fluxus no terminal é incluir as subrotinas em arquivos
+                        diferentes e linkar ou importar elas para o código fonte principal através do símbolo @.
+                        Abaixo será dado um exemplo que ilustrará todas essa informações.
+                    </p>
+                    <ol>
+                        <li>
+                            <h4>Baixe o interpretador no <a href="https://github.com/ThiagoToWo/tw">link dado</a>.</h4>
+                        </li>
+                        <img class="natural" src="img/repositorio.jpg" alt="print do repositório">
+                        <li>
+                           <h4>Crie uma pasta chamada "primos" na área de trabalho e copie o arquivo tw.exe para ela.</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+                        </pre>
+                        <li>
+                            <h4>Crie um arquivo de texto na pasta "primos" e dê o nome de "teste_primos".</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+    |
+    +--- teste_primos.txt
+                        </pre>
+                        <p>
+                            Observação: TW/Fluxus não possui extensão, pois ele executa interpretando os caracteres
+                            presentes no texto do código fonte. Portanto, pode ser .txt, .doc, .rtx ou qualquer outro formato
+                            de arquivo de texto. Ou ainda um arquivo sem extensão definida ou criada pelo próprio usuário.
+                        </p>
+                        <li>
+                            <h4>Digite o código abaixo no arquivo de texto "teste_primos".</h4>
+                        </li>
+                        <pre>
+# Determina se um numero eh primo ou nao
+# sem usar subrotina.
+{
+    << "TESTE DE PRIMARIDADE\n";
+    << "Insira o numero: ";
+    >> n;
+    ?n < 2? -> 4;
+    i = 2;
+    1;?i * i > n? -> 2;
+        ?n % i != 0? -> 3;
+            4;
+            << n, " nao eh primo";
+            -> 5;
+        3;
+            i = i + 1;
+            -> 1;
+    2;
+        << n, " eh primo";
+    5;
+}
+                        </pre>
+                        <li>
+                            <h4>Abra a pasta "primos" na linha de comandos e execute "tw teste_primos.txt".</h4>
+                        </li>
+                        <img class="natural" src="img/execucao1.jpg" alt="tw teste_primos.txt">
+                        <li>
+                            <h4>Execute agora "tw teste_primos.txt c".</h4>
+                        </li>
+                        <img class="natural" src="img/execucao2.jpg" alt="tw teste_primos.txt c">
+                        <p>
+                            Observe que aparecerá o conteúdo do código completo com a formatação original.
+                        </p>
+                        <li>
+                            <h4>Execute agora "tw teste_primos.txt p".</h4>
+                        </li>
+                        <img class="natural" src="img/execucao3.jpg" alt="tw teste_primos.txt p">
+                        <p>
+                            O interpretador executa o código otimizado verificando cacartere por caractere.
+                            Observe que o código está todo em uma única linha entre {}, sem espaço em branco
+                            e sem comentários.
+                        </p>
+                        <li>
+                            <h4>Execute agora "tw teste_primos.txt cp".</h4>
+                        </li>
+                        <img class="natural" src="img/execucao4.jpg" alt="tw teste_primos.txt cp">
+                        <p>
+                            Com esta opção, os dois formatos de conteúdo do código são mostrados.
+                        </p>
+                        <p>
+                            Os passos abaixo ilustrarão como funciona a linkagem de códigos em arquivos diferentes.
+                        </p>
+                        <li>
+                            <h4>Crie uma subpasta na pasta "primos" e dê o nome de "modulos".</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+    |
+    +--- teste_primos.txt
+    |
+    +--- modulos/
+                        </pre>
+                        <li>
+                            <h4>Crie um arquivo de texto dentro da pasta "modulos" chamado "primalidade".</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+    |
+    +--- teste_primos.txt
+    |
+    +--- modulos/
+            |
+            +--- primalidade.txt
+                        </pre>
+                        <li>
+                            <h4>Digite o código abaixo no arquivo de texto "primalidade".</h4>
+                        </li>
+                        <pre>
+# Verifica se um numero eh primo ou nao.
+# Entrada em p[100]. (numero a ser testado)
+# Retorno em p[100]. (1 se for primo e 0 se nao for)
+# Variavel auxiliar i[100].
+# Rotulos internos 1100, 2100, 3100 e 4100.
+                            
+100;
+?p[100] < 2? -> 4100;
+i[100] = 2;
+1100;
+?i[100] * i[100] > p[100]? -> 2100;
+    ?p[100] % i[100] != 0? -> 3100;
+        4100;
+        p[100] = 0;
+        <-;
+    3100;
+        i[100] = i[100] + 1;
+        -> 1100;
+2100;
+    p[100] = 1;
+    <-;
+                        </pre>
+                        <p>
+                            Essa subrotina 100 acima verifica se o valor atribuído a p[100] é primo ou não. 
+                            Ela configura p[100] para 1 caso seja primo e para 0 caso não seja. Deixando essa
+                            função separada em um arquivo independente, você pode importá-la em qualquer código
+                            que precisar desse tipo de verificação de primalidade.
+                        </p>
+                        <p>
+                            Vamos criar um código para usar esse módulo.
+                        </p>
+                        <li>
+                            <h4>Crie um arquivo de texto dentro da pasta "primos" chamado "teste_primos2".</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+    |
+    +--- teste_primos.txt
+    |
+    +--- teste_primos2.txt
+    |
+    +--- modulos/
+            |
+            +--- primalidade.txt
+                        </pre>
+                        <li>
+                            <h4>Digite o código abaixo no arquivo de texto "teste_primos2".</h4>
+                        </li>
+                        <pre>
+# Verifica se um numero eh primo ou nao
+# usando uma subrotina de verificacao
+# com variavel global de comunicacao.
+{
+    << "TESTE DE PRIMARIDADE\n";
+    << "Insira o numero: ";
+    >> n;
+    p[100] = n;
+    => 100;
+    ?p[100]? -> 1;
+        << n, " nao eh primo";
+        -> 2;
+    1;
+        << n, " eh primo";
+    2;
+}
+
+# Inclua o link no local onde o codigo
+# deveria ficar.
+@modulos/primalidade.txt
+                        </pre>
+                        <p>
+                            Como o conteúdo do módulo se trata de uma função, ele deve ser incluído após o }.
+                            A inclusão do link usando @ em um local, faz com que o interpretador procure o
+                            conteúdo desse novo arquivo e escreva nesse local, dando procedimento ao resto do
+                            código depois.
+                        </p>
+                        <p>
+                            Vamos executar teste_primos2 usando a opção c para ver como o interpretador completou
+                            o código principal com o conteúdo da função 100.
+                        </p>
+                        <li>
+                            <h4>Execute no terminal "tw teste_primos2.txt c".</h4>
+                        </li>
+                        <img class="natural" src="img/execucao5.jpg" alt="tw teste_primos2.txt c">
+                        <p>
+                            Reforçamos que, diferente de outras liguagens onde a importação de código é feita no início
+                            (cabeçalho), em TW/Fluxus a importação de código é feita no local onde o trecho do arquivo
+                            deveria ficar. É como completar um quebra-cabeça.
+                        </p>
+                        <p>
+                            Vamos criar em arquivos separados os comandos de impressão e inclui-los nos locais adequados
+                            usando @.
+                        </p>
+                        <li>
+                            <h4>Crie os arquivos de texto dentro da pasta "modulos" chamados "true" e "false".</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+    |
+    +--- teste_primos.txt
+    |
+    +--- teste_primos2.txt
+    |
+    +--- modulos/
+            |
+            +--- primalidade.txt
+            |
+            +--- true.txt
+            |
+            +--- false.txt
+                        </pre>
+                        <li>
+                            <h4>Digite o código abaixo no arquivo de texto "true".</h4>
+                        </li>
+                        <pre>
+<< n, " eh primo";
+                        </pre>
+                        <p>
+                            Tem o único objetivo de imprimir que um número guardado na variável n
+                            é primo.
+                        </p>
+                        <li>
+                            <h4>Digite o código abaixo no arquivo de texto "false".</h4>
+                        </li>
+                        <pre>
+<< n, " nao eh primo";
+                        </pre>
+                        <p>
+                            Tem o único objetivo de imprimir que um número guardado na variável n
+                            não é primo.
+                        </p>
+                        <li>
+                            <h4>Agora crie um arquivo na pasta "primos" chamado "teste_primos3".</h4>
+                        </li>
+                        <pre>
+primos/
+    |
+    +--- tw.exe
+    |
+    +--- teste_primos.txt
+    |
+    +--- teste_primos2.txt
+    |
+    +--- teste_primos3.txt
+    |
+    +--- modulos/
+            |
+            +--- primalidade.txt
+            |
+            +--- true.txt
+            |
+            +--- false.txt
+                        </pre>
+                        <li>
+                            <h4>Digite o código abaixo no arquivo de texto "teste_primos3".</h4>
+                        </li>
+                        <pre>
+# Verifica se um numero eh primo ou nao
+# usando uma subrotina de verificacao
+# com variavel global de comunicacao.
+{
+    << "TESTE DE PRIMARIDADE\n";
+    << "Insira o numero: ";
+    >> n;
+    p[100] = n;
+    => 100;
+    ?p[100]? -> 1;
+        @modulos/false.txt
+        -> 2;
+    1;
+        @modulos/true.txt
+    2;
+}
+
+# Inclua o link no local onde o codigo
+# deveria ficar.
+@modulos/primalidade.txt
+                        </pre>
+                        <li>
+                            <h4>Execute na linha de comando "tw teste_primos3.txt"</h4>
+                        </li>
+                        <img class="natural" src="img/execucao6.jpg" alt="tw teste_primos3.txt">
+                        <p>
+                            Execute o mesmo código com a opção c para ver como o conteúdo dos módulos
+                            se encaicham nos locais onde eles foram linkados.
+                        </p>
+                        <li>
+                            <h4>Execute na linha de comando "tw teste_primos3.txt c"</h4>
+                        </li>
+                        <img class="natural" src="img/execucao7.jpg" alt="tw teste_primos3.txt c">
+                    </ol>
                 </ol>
             </article>
         </div>
@@ -555,7 +898,9 @@ i[100] = 2;
                     <dd>$<i>id</i> <b>|</b></dd>
                     <dd>$<i>id</i>[<i>expr_lógica</i>]</dd>
                     <dt><i>decl_escrita</i>:</dt>
-                    <dd><< <i>sintagma</i> <b>{</b>, <i>sintagma</i><b>}</b></dd>
+                    <dd>
+                        << <i>sintagma</i> <b>{</b>, <i>sintagma</i><b>}</b>
+                    </dd>
                     <dt><i>sintagma</i>:</dt>
                     <dd>"<i>CADEIA</i>" <b>|</b></dd>
                     <dd>$<i>id</i> <b>|</b></dd>
@@ -573,7 +918,7 @@ i[100] = 2;
                     <dt><i>rótulo</i>:</dt>
                     <dd><i>NÚMERO_POSITIVO</i></dd>
                     <dt><i>retorno</i>:</dt>
-                    <dd><-</dd>
+                    <dd><- </dd>
                     <h2>CÁLCULOS:</h2>
                     <dt><i>expr_lógica</i>:</dt>
                     <dd><i>expr_log_termo</i> <b>{</b><i>disjunção</i> <i>expr_log_termo</i><b>}</b></dd>
@@ -591,9 +936,13 @@ i[100] = 2;
                     <dt><i>expr_relacional</i>:</dt>
                     <dd><i>expr_simples</i> <b>[</b><i>desigualdade</i> <i>expr_simples</i><b>]</b></dd>
                     <dt><i>desigualdade</i>:</dt>
-                    <dd>< <b>|</b></dd>
+                    <dd>
+                        < <b>|</b>
+                    </dd>
                     <dd>> <b>|</b></dd>
-                    <dd><= <b>|</b></dd>
+                    <dd>
+                        <= <b>|</b>
+                    </dd>
                     <dd>>=</dd>
                     <dt><i>expr_simples</i>:</dt>
                     <dd><i>termo</i> <b>{</b><i>soma</i> <i>termo</i><b>}</b></dd>

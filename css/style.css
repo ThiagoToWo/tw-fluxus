@@ -3,10 +3,13 @@ body {
     font: 16px/1.2 monospace;
 }
 .clear {clear: both;}  
-img {
+.small {
     width: 170px;
     height: 300px;
-}  
+}
+.natural {
+    width: 95%
+} 
 .all {
     width: 96%;
     margin: 0 auto;
